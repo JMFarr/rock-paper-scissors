@@ -1,2 +1,2 @@
 # rock-paper-scissors
-A recreation of the classics game with JavaScript
+A recreation of the classic game with JavaScript
