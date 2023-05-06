@@ -1,3 +1,9 @@
+let wins = 0;
+let losses = 0;
+let ties = 0;
+
+const score = document.querySelector('#score');
+const roundResult = document.querySelector('#round-result');
 const buttons = document.querySelectorAll('button');
 
 buttons.forEach((btn) => {
@@ -21,14 +27,19 @@ function playRound(playerSelection, computerSelection) {
     playerSelection = formatUserInput(playerSelection);
 
     if(playerSelection === computerSelection) {
-        console.log(`It's a tie! Both choices were ${playerSelection}.`);
+        roundResult.textContent = `It's a tie! Both choices were ${playerSelection}.`;
+        ties++;
     }else if(
         playerSelection === 'Rock' && computerSelection === 'Scissors' ||
         playerSelection === 'Paper' && computerSelection === 'Rock' ||
         playerSelection === 'Scissors' && computerSelection === 'Paper'
     ) {
-        console.log(`You win! ${playerSelection} beats ${computerSelection}.`);
+        roundResult.textContent = `You win! ${playerSelection} beats ${computerSelection}.`;
+        wins++;
     }else {
-        console.log(`You lose. ${playerSelection} loses to ${computerSelection}.`);
+        roundResult.textContent = `You lose. ${playerSelection} loses to ${computerSelection}.`;
+        losses++;
     }
+
+    score.textContent = `Wins: ${wins}, Losses: ${losses}, Ties: ${ties}`;
 }
