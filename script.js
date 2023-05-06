@@ -42,4 +42,9 @@ function playRound(playerSelection, computerSelection) {
     }
 
     score.textContent = `Wins: ${wins}, Losses: ${losses}, Ties: ${ties}`;
+
+    if(wins === 5 || losses === 5) {
+        alert(`${(wins > losses) ? 'Player' : 'Computer'} wins the game!`);
+        wins = losses = ties = 0;
+    }
 }
